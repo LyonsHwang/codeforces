@@ -1,4 +1,4 @@
-struct MATCH {
+struct Match {
     int n1,n2;
     vector<vector<int>> g;
     vector<int> mat,vis;
