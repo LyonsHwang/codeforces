@@ -1,4 +1,4 @@
-struct CTL {
+struct Chtholly {
     map<int,ll> arr; 
     void init(int l,int r) {
         arr.clear();
