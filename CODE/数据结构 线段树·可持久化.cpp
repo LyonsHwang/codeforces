@@ -1,4 +1,4 @@
-struct PSEG {
+struct PSeg {
     struct node {
         int l,r;
         ll sum;
