@@ -1,4 +1,4 @@
-struct MSEG {
+struct MSeg {
     struct node {
         int l,r,sum;
     };
