@@ -1,4 +1,4 @@
-struct SEG {
+struct Seg {
     struct node {
         ll val,tag;
         int sz;
