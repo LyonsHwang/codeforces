@@ -1,4 +1,4 @@
-struct FWK {
+struct Fenwick {
     int n;
     vector<ll> t;
     void init(int n_) {
