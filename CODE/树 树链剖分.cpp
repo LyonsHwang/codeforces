@@ -1,4 +1,4 @@
-struct TREE {
+struct Tree {
     struct edge {
         int to; ll c;
     };
