@@ -40,6 +40,8 @@ typedef pair<long long,long long> pll;
 typedef complex<double> cp;
 template<class T> using vector2D = vector<vector<T>>;
 template<class T> using vector3D = vector<vector2D<T>>;
+template<class T> using pque = priority_queue<T>;
+template<class T> using heap = priority_queue<T,vector<T>,greater<T>>;
 
 template<class T> bool umax(T &x, T y) { return (x<y)? x=y,true: false; }
 template<class T> bool umin(T &x, T y) { return (x>y)? x=y,true: false; }
