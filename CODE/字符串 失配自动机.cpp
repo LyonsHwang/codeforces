@@ -42,8 +42,9 @@ struct ACM {
         g.resize(isz(m));
         rep(i,1,isz(m)) g[m[i].fa].push_back(i);
         function<void(int)> dfs=[&](int x) {
-            for(auto y: g[x]) dfs(y),V[x]+=V[y];
+            for(auto y: g[x])
+                dfs(y),V[x]+=V[y];
         };
         dfs(0);
     }
-} ac;
+};
