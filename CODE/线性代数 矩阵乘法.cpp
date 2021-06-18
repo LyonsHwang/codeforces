@@ -18,7 +18,7 @@ struct Matrix {
         return c;
     }
     Matrix power(ll m) {
-        Matrix a(R()), b(v);
+        Matrix a(R()),b(v);
         for(;m;m>>=1,b=b*b)
             if(m&1) a=a*b;
         return a;
