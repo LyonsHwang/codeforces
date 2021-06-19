@@ -21,9 +21,9 @@ const int P=M3;
 #define rep(i,l,r) for(int i=(l);i<(r);i++)
 #define rback(i,l,r) for(int i=(r)-1;i>=(l);i--)
 #define all(x) (x).begin(),(x).end()
-#define tri(op,a,b,c) op(op(a,b),c)
 #define isz(x) ((int)(x).size())
 #define iln(x) ((int)(x).length())
+#define rank(x) sort(x),reverse(x)
 
 #define mid (l+(r-l)/2)
 #define lson (x<<1)
@@ -43,6 +43,8 @@ template<class T> using vector3D = vector<vector2D<T>>;
 template<class T> using pque = priority_queue<T>;
 template<class T> using heap = priority_queue<T,vector<T>,greater<T>>;
 
+template<class T> T max(T a, T b, T c) { return max(max(a,b),c); }
+template<class T> T min(T a, T b, T c) { return min(min(a,b),c); }
 template<class T> bool umax(T &x, T y) { return (x<y)? x=y,true: false; }
 template<class T> bool umin(T &x, T y) { return (x>y)? x=y,true: false; }
 
