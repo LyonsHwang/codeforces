@@ -1,7 +1,7 @@
 struct Seg {
     struct node {
-        ll val,tag;
         int sz;
+        ll val,tag;
     };
     vector<node> t;
     int Ln,Rn,L,R,G;
@@ -24,7 +24,7 @@ struct Seg {
         t[x].val=t[lson].val+t[rson].val;
     }
     void bld(int x,int l,int r) {
-        t[x]={0,0,r-l};
+        t[x]={r-l,0,0};
         if(r-l==1) return;
         bld(lson,l,mid);
         bld(rson,mid,r);
