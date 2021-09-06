@@ -1,0 +1,80 @@
+struct Splay {
+    struct node {
+        int fa,ch[2],sz;
+        ll val,tag;
+        int side(int x) { return ch[1]==x; }
+        void repl(int x,int y) { ch[side(x)]=y; }
+    };
+    vector<node> t;
+    int root;
+    int add() {
+        t.push_back(t[0]);
+        return t.size()-1;
+    }
+    void adj(int x) {
+        if(!x) return;
+        swap(t[x].ch[0],t[x].ch[1]);
+        t[x].tag^=1;
+    }
+    void push(int x) {
+        if(!t[x].tag) return;
+        adj(t[x].ch[0]);
+        adj(t[x].ch[1]);
+        t[x].tag=0;
+    }
+    void pull(int x) {
+        if(!x) assert(0);
+        t[x].sz=t[t[x].ch[0]].sz+t[t[x].ch[1]].sz+1;
+    }
+    void rotate(int x,int &o) {
+        int y=t[x].fa,z=t[y].fa;
+        int l=t[y].side(x),r=l^1;
+        int &w=t[x].ch[r];
+        if(y==o) o=x; else t[z].repl(y,x);
+        t[x].fa=z; t[y].fa=x; t[w].fa=y;
+        t[y].ch[l]=w; w=y;
+        pull(y);
+    }
+    void splay(int x,int &o) {
+        stack<int> stk;
+        for(int i=x;i!=o;i=t[i].fa) stk.push(i);
+        push(o);
+        for(;stk.size();stk.pop()) push(stk.top());
+        for(;x!=o;rotate(x,o)) {
+            int y=t[x].fa,z=t[y].fa;
+            if(y!=o) rotate((t[y].side(x)^t[z].side(y))? x: y, o);
+        }
+        pull(x);
+    }
+    int find(int x,int k) {
+        push(x);
+        int l=t[x].ch[0],r=t[x].ch[1];
+        if(t[l].sz+1==k) return x;
+        if(t[l].sz>=k) return find(l,k);
+        return find(r,k-t[l].sz-1);
+    }
+    int find(int k) {
+        return find(root,k+1);
+    }
+    void adjust(int L,int R) {
+        int l=find(root,L);
+        int r=find(root,R+1);
+        splay(l,root);
+        splay(r,t[l].ch[1]);
+        adj(t[r].ch[0]);
+    }
+    int insert(int K) {
+        int l=find(root,K);
+        int r=find(root,K+1);
+        splay(l,root);
+        splay(r,t[l].ch[1]);
+        int x=add();
+        t[x].fa=r; t[r].ch[0]=x;
+        return splay(x,root),x;
+    }
+    void init() {
+        t.resize(1); add(); add();
+        t[2].fa=1; t[1].ch[1]=2;
+        splay(2,root=1);
+    }
+};
