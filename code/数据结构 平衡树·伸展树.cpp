@@ -4,7 +4,7 @@ struct Splay {
         ll val,tag;
         int side(int x) { return ch[1]==x; }
         void repl(int x,int y) { ch[side(x)]=y; }
-        void filp() { swap(ch[0],ch[1]); tag^=1; }
+        void flip() { swap(ch[0],ch[1]); tag^=1; }
     };
     vector<node> t;
     int root;
