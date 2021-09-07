@@ -51,8 +51,8 @@ struct Splay {
         if(t[l].sz+1==k) return x;
         return (k<=t[l].sz)? find(l,k): find(r,k-t[l].sz-1);
     }
-    int find(int k) {
-        return find(root,k+1);
+    int find(int K) {
+        return find(root,K+1);
     }
     void adjust(int L,int R) {
         int l=find(root,L);
