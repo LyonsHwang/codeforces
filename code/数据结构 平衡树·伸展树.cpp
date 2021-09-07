@@ -28,8 +28,8 @@ struct Splay {
     }
     void rotate(int x,int &o) {
         int y=t[x].fa,z=t[y].fa;
-        int l=t[y].side(x),r=l^1;
-        int &w=t[x].ch[r];
+        int l=t[y].side(x);
+        int &w=t[x].ch[!l];
         if(y==o) o=x; else t[z].repl(y,x);
         t[x].fa=z; t[y].fa=x; t[w].fa=y;
         t[y].ch[l]=w; w=y;
@@ -38,9 +38,8 @@ struct Splay {
     void splay(int x,int &o) {
         stack<int> stk;
         for(int i=x;i!=o;i=t[i].fa) stk.push(i);
-        push(o);
-        for(;stk.size();stk.pop()) push(stk.top());
-        for(;x!=o;rotate(x,o)) {
+        for(push(o); stk.size(); stk.pop()) push(stk.top());
+        for(; x!=o; rotate(x,o)) {
             int y=t[x].fa,z=t[y].fa;
             if(y!=o) rotate((t[y].side(x)^t[z].side(y))? x: y, o);
         }
@@ -50,8 +49,7 @@ struct Splay {
         push(x);
         int l=t[x].ch[0],r=t[x].ch[1];
         if(t[l].sz+1==k) return x;
-        if(t[l].sz>=k) return find(l,k);
-        return find(r,k-t[l].sz-1);
+        return (k<=t[l].sz)? find(l,k): find(r,k-t[l].sz-1);
     }
     int find(int k) {
         return find(root,k+1);
