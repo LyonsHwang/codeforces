@@ -4,6 +4,7 @@ struct Splay {
         ll val,tag;
         int side(int x) { return ch[1]==x; }
         void repl(int x,int y) { ch[side(x)]=y; }
+        void filp() { swap(ch[0],ch[1]); tag^=1; }
     };
     vector<node> t;
     int root;
@@ -13,8 +14,7 @@ struct Splay {
     }
     void adj(int x) {
         if(!x) return;
-        swap(t[x].ch[0],t[x].ch[1]);
-        t[x].tag^=1;
+        t[x].flip();
     }
     void push(int x) {
         if(!t[x].tag) return;
