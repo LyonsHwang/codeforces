@@ -23,7 +23,6 @@ const int P=M3;
 #define all(x) (x).begin(),(x).end()
 #define isz(x) ((int)(x).size())
 #define iln(x) ((int)(x).length())
-#define rank(x) sort(x),reverse(x)
 
 #define mid (l+(r-l)/2)
 #define lson (x<<1)
