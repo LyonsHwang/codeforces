@@ -2,7 +2,8 @@ struct Fenwick {
     int n;
     vector<ll> t;
     void init(int n_) {
-        t.assign((n=n_)+1,0);
+        n=n_;
+        t.assign(n+1,0);
     }
     bool forward(int &x) {
         x+=x&-x;
