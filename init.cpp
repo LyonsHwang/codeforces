@@ -49,7 +49,7 @@ template<class T> bool umin(T &x, T y) { return (x>y)? x=y,true: false; }
 
 void prepare() {
     ios::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
+    cin.tie(0), cout.tie(0);
 }
 
 int main() {
