@@ -1,5 +1,5 @@
 // Problem:     https://www.luogu.com.cn/problem/U103231
-// Submission:  https://www.luogu.com.cn/record/71644615
+// Submission:  https://www.luogu.com.cn/record/71644916
 
 struct SuffixArray {
     int n;  // length
@@ -31,13 +31,12 @@ struct SuffixArray {
             loop(i, n) c[x[y[i]]]++;
             rep(i, 1, prv) c[i] += c[i - 1];
             lback(i, n) sa[--c[x[y[i]]]] = y[i];
-            swap(x, y);
-            cur = 1, x[sa[0]] = 0;
+            cur = 1, y[sa[0]] = 0;
             rep(i, 1, n) {
-                if (y[sa[i - 1]] != y[sa[i]] || y[sa[i - 1] + w] != y[sa[i] + w]) ++cur;
-                x[sa[i]] = cur - 1;
+                if (x[sa[i - 1]] != x[sa[i]] || x[sa[i - 1] + w] != x[sa[i] + w]) ++cur;
+                y[sa[i]] = cur - 1;
             }
-            prv = cur;
+            prv = cur, swap(x, y);
         }
         loop(i, n) rk[sa[i]] = i;
     }
