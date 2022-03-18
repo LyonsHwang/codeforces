@@ -1,5 +1,5 @@
 // Problem:     https://www.luogu.com.cn/problem/U103231
-// Submission:  https://www.luogu.com.cn/record/71635168
+// Submission:  https://www.luogu.com.cn/record/71644615
 
 struct SuffixArray {
     int n;  // length
@@ -55,7 +55,7 @@ struct SuffixArray {
     }
     void build_rmq() {
         g[0] = h;
-        for (int u = 1, w = 2; w < n; u++, w <<= 1) {
+        for (int u = 1, w = 2; w <= n; u++, w <<= 1) {
             g[u].resize(n - w + 1);
             loop(i, n - w + 1) g[u][i] = min(g[u - 1][i], g[u - 1][i + w / 2]);
         }
