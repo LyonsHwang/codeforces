@@ -1,5 +1,5 @@
-// Problem: https://www.luogu.com.cn/problem/U103231
-// Record:  https://www.luogu.com.cn/record/71635168
+// Problem:     https://www.luogu.com.cn/problem/U103231
+// Submission:  https://www.luogu.com.cn/record/71635168
 
 struct SuffixArray {
     int n;  // length
