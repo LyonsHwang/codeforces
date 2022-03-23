@@ -3,8 +3,8 @@ struct KMP {
     vector<int> s;  // string
     vector<int> b;  // border
     void init() {
-        n = ::n;
-        s.assign(::s, ::s + n);
+        // n = ::n;
+        // s.assign(::s, ::s + n);
         b.resize(n);
     }
     void build() {
