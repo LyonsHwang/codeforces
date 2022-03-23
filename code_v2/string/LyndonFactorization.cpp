@@ -1,7 +1,3 @@
-// Problem:     https://www.luogu.com.cn/problem/P6114
-// Submission:  https://www.luogu.com.cn/record/71977036
-// Tutorial:    https://www.xht37.com/lyndon-分解-学习笔记/
-
 struct LyndonFactorization {
     int n;
     vector<int> s;
