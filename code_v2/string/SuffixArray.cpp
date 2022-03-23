@@ -1,7 +1,3 @@
-// Problem:     https://www.luogu.com.cn/problem/U103231
-// Submission:  https://www.luogu.com.cn/record/71644916
-// Tutorial:    http://abcdxyzk.github.io/blog/2014/04/09/alg-suffix/
-
 struct SuffixArray {
     int n;  // length
     int m;  // charset
