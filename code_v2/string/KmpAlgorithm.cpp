@@ -20,4 +20,4 @@ struct KMP {
         if (s[k] == c) ++k;
         return k;
     }
-} kmp;
+};
