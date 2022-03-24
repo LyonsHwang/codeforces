@@ -1,6 +1,6 @@
 using arr = array<int, 26>;
 struct SuffixAutomaton {
-    int m;
+    int m;  // index
     vector<int> fa;
     vector<int> ln;
     vector<arr> go;
