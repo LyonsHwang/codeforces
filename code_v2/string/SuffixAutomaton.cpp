@@ -1,9 +1,8 @@
-using arr = array<int, 26>;
 struct SuffixAutomaton {
     int m;  // index
     vector<int> fa;
     vector<int> ln;
-    vector<arr> go;
+    vector<alpha<int>> go;
     void init() {
         m = 1;
         fa.resize(m);
@@ -11,7 +10,7 @@ struct SuffixAutomaton {
         go.resize(m);
         emplace(0, 0, go[0]);
     }
-    int emplace(int f, int l, arr &g) {
+    int emplace(int f, int l, alpha<int> &g) {
         fa.push_back(f);
         ln.push_back(l);
         go.push_back(g);
