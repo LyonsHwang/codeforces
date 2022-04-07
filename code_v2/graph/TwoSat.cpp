@@ -31,12 +31,11 @@ struct TwoSat {
     int dfs(int x) {
         int low = dfn[x] = k++;
         s.push(x), vis[x] = 1;
-        for (int y : g[x]) {
+        for (int y : g[x])
             if (!vis[y])
                 umin(low, dfs(y));
             else if (vis[y] == 1)
                 umin(low, dfn[y]);
-        }
         if (low == dfn[x])
             for (int u;;) {
                 u = s.top(), s.pop();
