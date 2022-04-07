@@ -2,7 +2,7 @@ struct TwoSat {
     int n;                  // thesis
     int m;                  // propositions
     int k;                  // dfs clock
-    vector<vector<int>> g;  // directed
+    vector<vector<int>> g;  // implication
     vector<int> ans;        // solution
     vector<int> dfn;        // dfs order
     vector<int> com;        // component
