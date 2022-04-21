@@ -1,4 +1,4 @@
-struct EratosthenesSieve {
+struct EulerSieve {
     vector<int> ps;
     vector<int> mn;
     void init(int n) {
